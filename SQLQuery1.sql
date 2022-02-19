@@ -6,7 +6,7 @@ SELECT [MovieName],
 		[ReleaseDate],
 		[RunningTime],
 		[MovieDescription],
-		[Genre]j
+		[Genre]jj
 FROM Movies
 GO
 
