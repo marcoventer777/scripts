@@ -1,2 +1,5 @@
-# This repo is for the SQL scripts. Each person (Marco, Mpho, Natasha and Themba) have their own branches. We will do a merge later this week where we combine all our work into
-# a single main branch.
+# This repo is for the SQL scripts.
+
+*NB do not make pull requests yet (merge into main). We will merge later this week.
+*You can manage your own branch as you like.
+For now, only push to the branch with your name, (marco only pushes to branch marco).
