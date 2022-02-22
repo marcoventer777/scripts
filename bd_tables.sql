@@ -10,12 +10,11 @@ CREATE TABLE [dbo].[Transfusion](
 );
 GO
 
---ADD FOREIGN KEYS
-
---ALTER TABLE dbo.Transfusion WITH NOCHECK ADD
---	CONSTRAINT FK_Transfusion_Person_personID FOREIGN KEY(personID) REFERENCES Person(personID),
---	CONSTRAINT FK_Transfusion_PreTest_preTestID FOREIGN KEY(preTestID) REFERENCES PreTest(preTestID)
---GO
+--FOREIGN KEYS
+ALTER TABLE dbo.Transfusion WITH NOCHECK ADD
+	CONSTRAINT FK_Transfusion_Persons_personID FOREIGN KEY(personID) REFERENCES Persons(personID),
+	CONSTRAINT FK_Transfusion_PreTest_preTestID FOREIGN KEY(preTestID) REFERENCES PreTest(preTestID)
+GO
 
 CREATE TABLE [dbo].[Pretest](
 	[preTestID] [int] IDENTITY (1,1) NOT NULL,
@@ -37,13 +36,12 @@ CREATE TABLE [dbo].[Donation](
 );
 GO
 
---ADD FOREIGN KEYS
-
---ALTER TABLE dbo.Donation WITH NOCHECK ADD
---	CONSTRAINT FK_Donation_Person_personID FOREIGN KEY(personID) REFERENCES Person(personID),
---	CONSTRAINT FK_Donation_PreTest_preTestID FOREIGN KEY(preTestID) REFERENCES PreTest(preTestID),
---	CONSTRAINT FK_Donation_DonationType_donationType FOREIGN KEY(donationType) REFERENCES DonationType(donationType)
---GO
+--FOREIGN KEYS
+ALTER TABLE dbo.Donation WITH NOCHECK ADD
+	CONSTRAINT FK_Donation_Persons_personID FOREIGN KEY(personID) REFERENCES Persons(personID),
+	CONSTRAINT FK_Donation_PreTest_preTestID FOREIGN KEY(preTestID) REFERENCES PreTest(preTestID),
+	CONSTRAINT FK_Donation_DonationTypes_donationType FOREIGN KEY(donationType) REFERENCES DonationTypes(donationType)
+GO
 
 CREATE TABLE [dbo].[DonationTypes](
 	[donationType] [varchar](130) UNIQUE NOT NULL,
