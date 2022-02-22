@@ -18,3 +18,11 @@ CREATE TABLE Request([requestID] int PRIMARY KEY IDENTITY(1, 1), [locationID] in
 						ON DELETE NO ACTION
 						)
 GO
+
+CREATE TABLE Inventory([bloodBagID] int PRIMARY KEY IDENTITY(1, 1), [locationID] int NOT NULL, [available] bit DEFAULT(1),
+						constraint [bloodLocation] FOREIGN KEY(locationID) references Locations(locationID)
+						ON DELETE CASCADE
+						ON UPDATE CASCADE,
+						constraint [bloodBagRef] FOREIGN KEY(bloodBagID) references BloodBag(bloodBagID)
+						)
+GO
