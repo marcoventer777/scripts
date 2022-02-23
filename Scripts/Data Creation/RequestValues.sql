@@ -18,3 +18,6 @@ INSERT INTO Request(locationID, bloodTypeRequested, amountRequestedML)
 INSERT INTO Request(locationID, bloodTypeRequested, amountRequestedML)
 			VALUES(6, 'AB-', 3090)
 GO
+INSERT INTO Request(locationID, bloodTypeRequested, amountRequestedML, dateReceived)
+			VALUES(4, 'A-', 345, '2021-01-19')
+GO
