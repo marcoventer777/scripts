@@ -3,7 +3,7 @@ GO
 
 INSERT INTO Transfusion(personID, amountReceivedML)
 VALUES  (4, 400),
-		(5, 470)
+	(5, 470)
 GO
 
 INSERT INTO PreTest(
