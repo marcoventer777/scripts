@@ -1,7 +1,4 @@
-USE DonoraDB
-GO
-
-CREATE OR ALTER PROCEDURE addDonation
+	CREATE OR ALTER PROCEDURE addDonation
     @hemoglobin FLOAT,
     @temperature FLOAT,
     @bloodPressure VARCHAR(7),
@@ -15,9 +12,9 @@ BEGIN TRY
 	 --update donor next safe donation date based on donation type
      DECLARE @interval INT;
      SELECT @interval = donationInterval FROM DonationTypes WHERE donationType=@donationType;
-     DECLARE @curDate;
+     DECLARE @curDate DATE;
      SELECT @curDate = nextSafeDonationDate FROM Donor WHERE personID=@personID;
-     UPDATE Donor SET nextSafeDonationDate=CAST(DATEADD(day, @interval, curDate) AS DATE) WHERE personID=@personID
+     UPDATE Donor SET nextSafeDonationDate=CAST(DATEADD(day, @interval, @curDate) AS DATE) WHERE personID=@personID
      INSERT INTO PreTest(
          hemoglobin,
          temperature,
@@ -103,5 +100,4 @@ BEGIN CATCH
 END CATCH
 GO
 
-
--- EXEC addDonation @hemoglobin=13, @temperature=35.9, @bloodPressure='120/100', @heartPulseBPM=65, @personID=3,@amountDonatedML=350,@donationType='Blood',@locationID=3;
+ EXEC addDonation @hemoglobin=13, @temperature=35.9, @bloodPressure='120/100', @heartPulseBPM=65, @personID=7,@amountDonatedML=350,@donationType='Blood',@locationID=3;
