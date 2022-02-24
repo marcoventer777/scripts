@@ -15,7 +15,9 @@ BEGIN TRY
 	 --update donor next safe donation date based on donation type
      DECLARE @interval INT;
      SELECT @interval = donationInterval FROM DonationTypes WHERE donationType=@donationType;
-     UPDATE Donor SET nextSafeDonationDate=CAST(DATEADD(day, @interval, '2017/08/25') AS DATE) WHERE personID=@personID
+     DECLARE @curDate;
+     SELECT @curDate = nextSafeDonationDate FROM Donor WHERE personID=@personID;
+     UPDATE Donor SET nextSafeDonationDate=CAST(DATEADD(day, @interval, curDate) AS DATE) WHERE personID=@personID
      INSERT INTO PreTest(
          hemoglobin,
          temperature,
