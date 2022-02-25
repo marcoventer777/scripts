@@ -23,7 +23,7 @@ RETURNS real
 AS
 BEGIN
 	--get %, and keep 2 decimal places.
-	RETURN CONVERT(DECIMAL(10,2), (@donated - @transfused) / @donated * 100);
+		RETURN CONVERT(DECIMAL(10,2), @transfused / @donated * 100);
 END;
 GO
 
