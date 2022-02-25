@@ -1,3 +1,5 @@
+USE DonoraDB
+GO
 
  CREATE TABLE Persons (
  personID int IDENTITY(1,1) NOT NULL PRIMARY KEY,
@@ -9,6 +11,7 @@
  gender VARCHAR (6) NOT NULL,
  mobileNum CHAR (10) NOT NULL,
  emailAddress VARCHAR (120) NOT NULL,
+  --validation
  UNIQUE (idNum),
  CONSTRAINT CHK_bloodType CHECK (bloodType='A+' OR
  bloodType='A-' OR
