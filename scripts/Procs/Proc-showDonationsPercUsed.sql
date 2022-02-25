@@ -1,9 +1,9 @@
 --PROC - show % of blood donated that is used in transfusions for donor.
 CREATE OR ALTER PROCEDURE ShowTransfusionsForDonor @donorID INT 
 AS
-SELECT  p.personID, SUM(d.amountDonatedML) as TotalDonated, 
-	    SUM(t.amountReceivedML) as TotalUsed, 
-		[dbo].Perc_TransfusedOfDonation(SUM(d.amountDonatedML), SUM(t.amountReceivedML)) as PercUsed
+SELECT  p.personID, SUM(d.amountDonatedML) AS TotalDonated, 
+	    SUM(t.amountReceivedML) AS TotalUsed, 
+		[dbo].Perc_TransfusedOfDonation(SUM(d.amountDonatedML), SUM(t.amountReceivedML)) AS PercUsed
 FROM Donor p
 LEFT JOIN Donation d ON p.personID = d.personID
 LEFT JOIN Donations ds ON d.donationID = ds.donationID 
