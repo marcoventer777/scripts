@@ -1,0 +1,41 @@
+CHANGE USERNAME for Github (so we know who did what)
+-name reflected on remote changes to others *add capital letter to
+name, lowercase is used for branch names (just to identify easier)
+git config --global user.name "Marco"
+git config --global user.name (confirm your name on Github)
+
+[local] * create new folder
+
+*open terminal in this folder:
+go to file path section and input "cmd"+ENTER
+
+*make local repo (folder with data) a Github repo
+git init
+
+*stage all changes
+git add .
+
+*commit (save all new changes in git history)
+git commit -m ""
+
+*create your branch locally (mine is "marco") and checkout new branch
+git checkout -b natasha
+
+**make changes/add/delete files and commit
+
+*link remote repo with current local folder
+git remote add origin https://github.com/marcoventer777/scripts.git
+
+*update local branch with content from remote branch
+git pull --allow-unrelated-histories origin natasha
+
+*update local with your named remote branch 
+git pull origin natasha (pull changes from remote branch into current local branch)
+
+*push local branch (natasha- first) to remote branch (natasha- second)
+git push origin natasha:natasha
+
+
+
+
+ 
