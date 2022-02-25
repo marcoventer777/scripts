@@ -60,7 +60,7 @@ use DonoraDB;
  preTestID INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
  hemoglobin FLOAT NOT NULL,
  temperature FLOAT NOT NULL,
- bloodPressure FLOAT NOT NULL,
+ bloodPressure VARCHAR(7) NOT NULL,
  heartPulseBPM INT NOT NULL,
  CONSTRAINT CHK_Pretest_hemoglobin CHECK(hemoglobin >= 12.5),
  CONSTRAINT CHK_Pretest_temperature CHECK(temperature >= 35 AND temperature <= 37.9),
