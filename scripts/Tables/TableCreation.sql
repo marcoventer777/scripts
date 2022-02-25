@@ -1,10 +1,10 @@
 use DonoraDB;
 
  CREATE TABLE Persons (
- personID int IDENTITY(1,1) NOT NULL PRIMARY KEY,
+ personID INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
  firstName VARCHAR (120) NOT NULL,
  lastName VARCHAR (120) NOT NULL,
- weightKGS int NOT NULL,
+ weightKGS INT NOT NULL,
  idNum CHAR (13) NOT NULL,
  bloodType VARCHAR (3) NOT NULL,
  gender VARCHAR (6) NOT NULL,
@@ -27,7 +27,7 @@ use DonoraDB;
  GO
 
  CREATE TABLE Patient (
- personID int NOT NULL PRIMARY KEY FOREIGN KEY REFERENCES Persons(personID) 
+ personID INT NOT NULL PRIMARY KEY FOREIGN KEY REFERENCES Persons(personID) 
    ON DELETE CASCADE
    ON UPDATE CASCADE,
  needStatus [varchar] (4) NOT NULL,
@@ -36,18 +36,18 @@ use DonoraDB;
  GO
 
  CREATE TABLE MedicalAid (
- schemeCode varchar(50) NOT NULL PRIMARY KEY,
- medName [varchar] (120) NULL,
- rewardPerDonation [int] NOT NULL,
+ schemeCode VARCHAR(50) NOT NULL PRIMARY KEY,
+ medName VARCHAR(120) NULL,
+ rewardPerDonation INT NOT NULL,
  UNIQUE (medName),
  );
  GO
 
  CREATE TABLE Donor (
- personID int NOT NULL PRIMARY KEY FOREIGN KEY REFERENCES Persons(personID)
+ personID INT NOT NULL PRIMARY KEY FOREIGN KEY REFERENCES Persons(personID)
    ON DELETE CASCADE
    ON UPDATE CASCADE,
- schemeCode varchar(50) NULL FOREIGN KEY REFERENCES MedicalAid(schemeCode)
+ schemeCode VARCHAR(50) NULL FOREIGN KEY REFERENCES MedicalAid(schemeCode)
    ON DELETE CASCADE
    ON UPDATE CASCADE,
  nextSafeDonationDate DATE NOT NULL,
@@ -70,8 +70,8 @@ use DonoraDB;
  GO
 
  CREATE TABLE DonationTypes (
- donationType varchar(20) NOT NULL PRIMARY KEY,
- donationInterval int NOT NULL,
+ donationType VARCHAR(20) NOT NULL PRIMARY KEY,
+ donationInterval INT NOT NULL,
  );
  GO
 
