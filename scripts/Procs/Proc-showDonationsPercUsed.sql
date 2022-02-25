@@ -12,6 +12,7 @@ left join Transfusions ts on ts.bloodBagID = b.bloodBagID
 left join Transfusion t on ts.transfusionID=t.transfusionID
 where p.personID = @donorID
 group by p.personID;
+GO
 
 --FUNC - get % used in transfusions if blood donated is given. Test: select [dbo].Perc_TransfusedOfDonation(1880, 820) as PercUsed;
 create or alter function [dbo].Perc_TransfusedOfDonation (
@@ -24,5 +25,7 @@ BEGIN
 	--get %, and keep 2 decimal places.
 	RETURN CONVERT(DECIMAL(10,2), (@donated - @transfused) / @donated * 100);
 END;
+GO
 
 EXEC ShowTransfusionsForDonor @donorID = 3;
+GO
